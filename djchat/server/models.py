@@ -7,7 +7,7 @@ class Category(models.Model):
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.id}"
 
 
 class Server(models.Model):
@@ -18,7 +18,7 @@ class Server(models.Model):
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="server_members")
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.id}"
 
 
 class Channel(models.Model):
@@ -32,4 +32,4 @@ class Channel(models.Model):
         super(Channel, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.id}"
